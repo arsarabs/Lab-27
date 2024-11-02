@@ -131,7 +131,6 @@ void increaseFriendship(map<string, villagerData>& villagers) {
     cout << "Villager name to increase friendship: " << endl;
     getline(cin, name);
 
-    //use auto find 
     auto it = villagers.find(name); // searches villagers map for specific name (auto deduces the type of it as iterator for map)
     if (it != villagers.end()) { //validation to see if name in map
         int& friendship = get<0>(it->second); //here, it->second retrives the tuple associated with villager.
@@ -154,11 +153,46 @@ void decreaseFriendship(map<string, villagerData>& villagers) {
     string name;
     cout << "Villager name to decrease friendship: " << endl;
     getline(cin, name);
+
+    //nearly identical to increase!!
+       
+    auto it = villagers.find(name); // searches villagers map for specific name (auto deduces the type of it as iterator for map)
+    if (it != villagers.end()) { //validation to see if name in map
+        int& friendship = get<0>(it->second); //here, it->second retrives the tuple associated with villager.
+        //& get<0>() accesses the first element
+
+        //if friendlevel is below max, then increase freindship by 1. if not, friendship level already at max
+        if (friendship < FRIENDSHIP_MAX) {
+            friendship -= 1;
+            cout << "Friendship level of " << name << " decrease to " << friendship << endl;
+        }
+        else {
+            cout << "Friendship level of " << name << " already at min (" << FRIENDSHIP_MIN << ")" << endl;
+        }
+    }
+    else {
+        cout << name << " not found" << endl;
+    }
 }
 void searchForVillager(const map<string, villagerData>& villagers) {
     string name;
     cout << "Villager name to search: ";
     getline(cin, name);
+
+    auto it = villagers.find(name); // searches villagers map for specific name (auto deduces the type of it as iterator for map)
+    if (it != villagers.end()) { //validation to see if name in map
+        const villagerData& data = it->second; // // Retrieve the tuple (friendship, species, catchphrase) from the found villager's data
+        int friendship;
+        string species, catchphrase;
+
+        // Unpack the tuple into the respective variables
+
+        //& display
+
+        
+
+
+    }
 
 }
 void display(const map<string, villagerData>& villagers) {

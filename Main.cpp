@@ -90,7 +90,14 @@ void addVillager(map<string, villagerData>& villagers) {
         return;
     }
 
-    //Get friendship (&input validation)
+      // Input validation for friendship level
+    cout << "Friendship level (" << FRIENDSHIP_MIN << "-" << FRIENDSHIP_MAX << "): " << endl;
+    while (!(cin >> friendship) || friendship < FRIENDSHIP_MIN || friendship > FRIENDSHIP_MAX) {
+        cout << "Invalid input. Please enter a number between " << FRIENDSHIP_MIN << " and " << FRIENDSHIP_MAX << ": " << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
 
     //and finally, get catchphrase and species
     cout << "Species: " << endl;
@@ -108,8 +115,16 @@ void deleteVillager(map<string, villagerData>& villagers) {
     string name;
 
     //Prompt which villager to delete
+    cout << "Villager name to delete: " << endl;
+    getline(cin, name);
 
     //delete (using if/else)
+    if (villagers.erase(name)) {
+        cout << name << " deleted" << endl;
+    }
+    else {
+        cout << name << " not found" << endl;
+    }
 }
 void increaseFriendship(map<string, villagerData>& villagers) {
 

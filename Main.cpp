@@ -12,21 +12,20 @@ using namespace std;
 const int FRIENDSHIP_MIN = 0;    // Minimum friendship level
 const int FRIENDSHIP_MAX = 10;   // Maximum friendship level
 
-//1. Add Villager
-2. Delete Villager
-3. Increase Friendship
-4. Decrease Friendship
-5. Search for Villager
-6. Exit
-
+using villagerData = tuple<int, string, string>;
 
 //Function Prototypes
+void addVillager(map<string, villagerData>& villagers);
+void deleteVillager(map<string, villagerData>& villagers);
+void increaseFriendship(map<string, villagerData>& villagers);
+void decreaseFriendship(map<string, villagerData>& villagers);
+void searchForVillager(const map<string, villagerData>& villagers);
+void display(const map<string, villagerData>& villagers);
 
-using VillagerData = tuple<int, string, string>;
 
 int main() {
     // declarations
-    map<string, vector<string>> villagerColors;
+    //map<string, vector<string>> villagerColors;
 
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
@@ -76,5 +75,46 @@ int main() {
     cout << "Size after clear: " << villagerColors.size() << endl;
 
     return 0;
+}
+
+
+void addVillager(map<string, villagerData>& villagers) {
+    //Local Variables
+    string name, catchphrase, species = "";
+    int friendship = 0;
+
+    //Get name (& check if name exists)
+
+    //Get friendship (&input validation)
+
+    //and finally, get catchphrase and species
+
+    //then add villager using make_tuple
+
+}
+void deleteVillager(map<string, villagerData>& villagers) {
+    string name;
+
+    //Prompt which villager to delete
+
+    //delete (using if/else)
+}
+void increaseFriendship(map<string, villagerData>& villagers) {
+
+}
+void decreaseFriendship(map<string, villagerData>& villagers) {
+
+}
+void searchForVillager(const map<string, villagerData>& villagers) {
+
+}
+void display(const map<string, villagerData>& villagers) {
+    if (villagers.empty()) {
+        cout << "No villagers to display.\n";
+        return;
+    }
+
+    cout << "************************************" << endl;
+    cout << "********** VILLAGER DETAILS ******** " << endl;
 }
 

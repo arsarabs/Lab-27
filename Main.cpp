@@ -33,6 +33,44 @@ int main() {
     };
 
    //display menu using while loop & switch
+    while (true) {
+        cout << "Menu: " << endl;
+        cout << "1. Add Villager" << endl;
+        cout << "2. Delete Villager" << endl;
+        cout << "3. Increase Friendship" << endl;
+        cout << "4. Decrease Friendship" << endl;
+        cout << "5. Search for Villager" << endl;
+        cout << "6. Display All Villagers" << endl;
+        cout << "7. Exit" << endl;
+        cout << "Enter your choice: " << endl;
+
+        // Input validation for menu choice
+        while (!(cin >> userChoice) || userChoice < 1 || userChoice > 7) {
+            cout << "Invalid input. Please enter a number between 1 and 7: ";
+            cin.clear(); // Clear error flags
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+        }cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
+
+        //swtich
+        switch (userChoice) {
+        case 1:
+            break; 
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        default:
+         
+    }
+        cout << endl;
 
     return 0;
 }

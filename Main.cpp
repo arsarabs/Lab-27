@@ -54,30 +54,38 @@ int main() {
         //swtich
         switch (userChoice) {
         case 1:
-            break; 
+            addVillager(villagers);
+            break;
         case 2:
+            deleteVillager(villagers);
             break;
         case 3:
+            increaseFriendship(villagers);
             break;
         case 4:
+            decreaseFriendship(villagers);
             break;
         case 5:
+            searchForVillager(villagers);
             break;
         case 6:
+            display(villagers);
             break;
         case 7:
+            cout << "GOODBYE!" << endl;
             break;
+            return 0; //COMPLETE HERE
         default:
-         
+            cout << "error" << endl;
+        }
+        cout << endl; 
     }
-        cout << endl;
-
     return 0;
 }
 void addVillager(map<string, villagerData>& villagers) {
     //Local Variables
-    string name, catchphrase, species = "";
-    int friendship = 0;
+    string name, catchphrase, species;
+    int friendship;
 
     //Get name (& check if name exists)
 

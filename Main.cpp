@@ -2,8 +2,27 @@
 
 #include <iostream>
 #include <map>
-#include <vector> 
+#include <tuple>
+#include <string>
+#include <algorithm>
+#include <limits>
 using namespace std;
+
+//Constants
+const int FRIENDSHIP_MIN = 0;    // Minimum friendship level
+const int FRIENDSHIP_MAX = 10;   // Maximum friendship level
+
+//1. Add Villager
+2. Delete Villager
+3. Increase Friendship
+4. Decrease Friendship
+5. Search for Villager
+6. Exit
+
+
+//Function Prototypes
+
+using VillagerData = tuple<int, string, string>;
 
 int main() {
     // declarations
@@ -58,3 +77,4 @@ int main() {
 
     return 0;
 }
+

@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <map>
-#include <vector>
+#include <vector> 
 using namespace std;
 
 int main() {

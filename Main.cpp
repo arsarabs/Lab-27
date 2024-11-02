@@ -138,6 +138,15 @@ void increaseFriendship(map<string, villagerData>& villagers) {
         //& get<0>() accesses the first element
         
         //if friendlevel is below max, then increase freindship by 1. if not, friendship level already at max
+        if (friendship < FRIENDSHIP_MAX) {
+            friendship += 1;
+            cout << "Friendship level of " << name << " increased to " << friendship  << endl;
+        }
+        else {
+            cout << "Friendship level of " << name << " already at max (" << FRIENDSHIP_MAX << ")" << endl;
+        }
+    }else {
+        cout << name << " not found" << endl;
     }
 
 }

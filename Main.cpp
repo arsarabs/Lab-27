@@ -76,8 +76,6 @@ int main() {
 
     return 0;
 }
-
-
 void addVillager(map<string, villagerData>& villagers) {
     //Local Variables
     string name, catchphrase, species = "";
@@ -85,11 +83,25 @@ void addVillager(map<string, villagerData>& villagers) {
 
     //Get name (& check if name exists)
 
+    cout << "Villager name: " << endl;
+    getline(cin, name);
+    if (villagers.find(name) != villagers.end()) {
+        cout << "Villager \"" << name << "\" already exists." << endl;
+        return;
+    }
+
     //Get friendship (&input validation)
 
     //and finally, get catchphrase and species
+    cout << "Species: " << endl;
+    getline(cin, species);
+
+    cout << "Catchphrase: " << endl;
+    getline(cin, catchphrase);
 
     //then add villager using make_tuple
+    villagers[name] = make_tuple(friendship, species, catchphrase);
+    cout << name << " added.";
 
 }
 void deleteVillager(map<string, villagerData>& villagers) {
@@ -109,12 +121,23 @@ void searchForVillager(const map<string, villagerData>& villagers) {
 
 }
 void display(const map<string, villagerData>& villagers) {
+    //checks to see if there are villagers to display
     if (villagers.empty()) {
         cout << "No villagers to display.\n";
         return;
     }
-
+    //DISPLAY
     cout << "************************************" << endl;
     cout << "********** VILLAGER DETAILS ******** " << endl;
+    for (const auto& pair : villagers) {
+        const string& name = pair.first;
+        const villagerData& data = pair.second;
+        int friendship;
+
+        string species, catchphrase;
+        tie(friendship, species, catchphrase) = data;
+        cout << name << " [" << friendship << ", " << species << ", \"" << catchphrase << "\"]\n";
+    }
+    cout << "************************************" << endl;
 }
 

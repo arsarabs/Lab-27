@@ -127,12 +127,29 @@ void deleteVillager(map<string, villagerData>& villagers) {
     }
 }
 void increaseFriendship(map<string, villagerData>& villagers) {
+    string name;
+    cout << "Villager name to increase friendship: " << endl;
+    getline(cin, name);
+
+    //use auto find 
+    auto it = villagers.find(name); // searches villagers map for specific name (auto deduces the type of it as iterator for map)
+    if (it != villagers.end()) { //validation to see if name in map
+        int& friendship = get<0>(it->second); //here, it->second retrives the tuple associated with villager.
+        //& get<0>() accesses the first element
+        
+        //if friendlevel is below max, then increase freindship by 1. if not, friendship level already at max
+    }
 
 }
 void decreaseFriendship(map<string, villagerData>& villagers) {
-
+    string name;
+    cout << "Villager name to decrease friendship: " << endl;
+    getline(cin, name);
 }
 void searchForVillager(const map<string, villagerData>& villagers) {
+    string name;
+    cout << "Villager name to search: ";
+    getline(cin, name);
 
 }
 void display(const map<string, villagerData>& villagers) {
